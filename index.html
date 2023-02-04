@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+
+    body {
+        background: rgb(163, 115, 207);
+    }
+    .container {
+      display: flex;
+    
+      justify-content: center;
+    }
+.form_item {
+    margin-top: 150px;
+    border: solid 2px black;
+    height: 250px;
+    width: 250px;
+   
+  
+}
+button {
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+input {
+    padding: 8px;
+    border-radius: 2px;
+    border: none;
+}
+</style>
+<body>
+    
+            <form  onsubmit="saveToLocalStorage(event)">
+                <label>Enter your username:</label> <br>
+                <input type="text" name="username" required> <br><br>
+                <label>Enter your password:</label> <br>
+                <input type="text" name="password"  required> <br>
+                <label>Enter your phone:</label> <br>
+                <input type="tel" name="phone" > <br>
+                <button>submit</button><br>
+            </form>
+      <ul id="list-items">
+     <li></li>
+      </ul>
+   
+
+<script>
+
+function saveToLocalStorage(event) {
+    event.preventDefault();
+
+    const name = event.target.username.value;
+    const password = event.target.possword.value;
+    const phone = event.target.phone.value;
+
+    localStorage.setItem('name', name);
+    localStorage.setItem(' password', password);
+    localStorage.setItem('phone',phone);
+
+    const obj = {
+        name,
+        password,
+        phone
+    }
+    
+localStorage.setItem('userDetails', JSON.stringify(obj))
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>
